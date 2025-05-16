@@ -10,6 +10,7 @@ COMMA = 'COMMA'
 EQUALS = 'EQUALS'
 STRING = 'STRING'
 SKIP = 'SKIP'
+ASTERISK = 'ASTERISK'
 MISMATCH = 'MISMATCH'
 
 # Regular expression patterns for each token type
@@ -21,8 +22,8 @@ TOKEN_PATTERNS = [
     (COMMA, r','),
     (EQUALS, r'='),
     (STRING, r"'[^']*'"),  # Single-quoted strings
+    (ASTERISK, r'\*'),  # Asterisk for SELECT *
     (SKIP, r'[ \t\n]+'),  # Whitespace and newlines
-    (MISMATCH, r'.'),  # Any other character
 ]
 
 def tokenize(input_str: str) -> List[Tuple[str, str]]:
